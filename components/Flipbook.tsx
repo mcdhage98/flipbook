@@ -67,15 +67,15 @@ const BookMount = memo(function BookMount({ values, onReady }: BookMountProps) {
           width: PAGE_CSS_WIDTH,
           height: Math.round(PAGE_CSS_WIDTH / PAGE_RATIO),
           size: "stretch",
-          minWidth: 280,
+          minWidth: 200,
           maxWidth: 560,
-          minHeight: 400,
+          minHeight: 140,
           maxHeight: 820,
           drawShadow: true,
           flippingTime: 700,
           usePortrait: true,
           showCover: false,
-          mobileScrollSupport: false,
+          mobileScrollSupport: true,
           useMouseEvents: true,
           showPageCorners: true,
           disableFlipByClick: false,
@@ -223,7 +223,9 @@ export function Flipbook() {
 
   return (
     <section className="reader" aria-label="Flipbook">
-      <BookMount values={valuesRef.current} onReady={onReady} />
+      <div className="book-stage">
+        <BookMount values={valuesRef.current} onReady={onReady} />
+      </div>
       <div className="toolbar">
         <button type="button" onClick={() => bookRef.current?.flipPrev("top")} disabled={!ready || atStart}>
           Previous

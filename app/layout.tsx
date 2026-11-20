@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { Fraunces, Source_Sans_3 } from "next/font/google";
 import "./globals.css";
@@ -17,6 +17,12 @@ const sans = Source_Sans_3({
 export const metadata: Metadata = {
   title: "Leading from the Inside Out",
   description: "Fill in the cover, read the guide as a flipbook, and download your copy.",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
